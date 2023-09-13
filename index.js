@@ -60,13 +60,11 @@ function dizi25Cesitmi(dizi) {
   const kontrol = [...dizi];
   if (kontrol.length === 25) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
 dizi25Cesitmi(orijinalTatlar);
-
 
 /* Görev 3:
 Pastane sahibi size yeni bir lezzet fikriyle geldi: Kakule! Bunun da çok tutacağından çok emin. Bu lezzeti eklemek için diziyi değiştirmeniz gerekir.
@@ -79,13 +77,11 @@ Aşağıdakileri yapmak için cesitEkle işlevini kullanın:
 
   Örneğin: cesitEkle(orijinalTatlar, "Kakule") işlevi doğru çalıştığında ["Kakule", "Muz",..."Vanilya"] şeklinde dönmelidir
 */
-function cesitEkle(tatlar,string) {
+function cesitEkle(tatlar, string) {
   tatlar.unshift(string);
-  console.log(tatlar);
+  return tatlar;
 }
-cesitEkle(orijinalTatlar,"Kakule");
-
-
+cesitEkle(orijinalTatlar, "Kakule");
 
 /* Cörev 4:
 
@@ -101,7 +97,7 @@ Aşağıdakileri yapmak için sonCesitiKaldir işlevini kullanın:
 
 function sonCesitiKaldir(dizi) {
   dizi.pop();
-  console.log(dizi);
+  return dizi;
 }
 sonCesitiKaldir(orijinalTatlar);
 
@@ -116,9 +112,10 @@ Aşağıdakileri yapmak için aşağıdaki indekstekiCesitiGetir işlevini kulla
    Örneğin: indekstekiCesitiGetir(orijinalTatlar, 2) çalıştırılmasıyla, Kakule'in başarıyla eklendiği varsayarsak sonuç "Ceviz" olucaktır.
 */
 
-function indekstekiCesitiGetir(/*kod buraya*/) {
-  /*kod buraya*/
+function indekstekiCesitiGetir(tatlar, dizinNumarası) {
+  return tatlar[dizinNumarası];
 }
+indekstekiCesitiGetir(orijinalTatlar, 2);
 
 /* Görev 6:
 
@@ -135,10 +132,12 @@ Aşağıdakileri yapmak için ismeGoreCesitCikar işlevini kullanın:
   İPUCU: Bunun için .splice() kullanabilirsiniz.
 */
 
-function ismeGoreCesitCikar(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreCesitCikar(tatlar, lezzet) {
+  const index = tatlar.indexOf(lezzet);
+  tatlar.splice(index, 1);
+  return tatlar;
 }
-
+ismeGoreCesitCikar(orijinalTatlar, "Tarçın");
 /* Görev 7:
 
 14 Şubat Sevgililer Günü'nde Firma, tüm çikolata lezzetlerini öne çıkaran bir promosyon malzemeleri oluşturmak istiyor.
@@ -159,9 +158,17 @@ Aşağıdakileri yapmak için ismeGoreFiltrele işlevini kullanın:
   Bu sorunu çözmek için GELİŞMİŞ DİZİ YÖNTEMLERİNİ (yani .filter) KULLANMAYIN.
 */
 
-function ismeGoreFiltrele(/*kod buraya*/) {
-  /*kod buraya*/
+function ismeGoreFiltrele(tatlar, filtre) {
+  const diziUzunluk = tatlar.length;
+  const filtreTatlar = [];
+  for (let i = 0; i < diziUzunluk; i++) {
+    if (tatlar[i].includes(filtre)) {
+      filtreTatlar.push(tatlar[i]);
+    }
+  }
+  return filtreTatlar;
 }
+ismeGoreFiltrele(orijinalTatlar, "Çikolata");
 
 /* ALIŞTIRMA */
 
